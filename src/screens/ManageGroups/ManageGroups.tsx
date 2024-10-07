@@ -1,7 +1,9 @@
 import React from 'react';
-import { IconButton, Button, Box, Typography, Avatar } from '@mui/material';
+
 import { Groups, Person, Edit } from '@mui/icons-material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { IconButton, Button, Box, Typography, Avatar } from '@mui/material';
+
 import { styles, BackButton, BackButtonWrapper } from './GroupManagementStyles';
 
 const GroupManagement: React.FC = () => {
