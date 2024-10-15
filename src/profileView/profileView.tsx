@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { FormControl, FormControlState } from '@mui/base/FormControl';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
 import Avatar from '@mui/material/Avatar';
@@ -16,9 +17,14 @@ import {
   EditButtonWrapper,
   AvatarWrapper,
   Item,
+  StyledInput,
+  ChangePasswordForm,
+  SaveChangesButton,
 } from './profileViewStyles';
 
 export const ProfileView = () => {
+  const [showPasswordForm, setShowPasswordForm] = React.useState(false);
+
   function generate(element: React.ReactElement) {
     return [0, 1, 2, 3, 4].map((value) =>
       React.cloneElement(element, {
@@ -46,9 +52,53 @@ export const ProfileView = () => {
         <h2>Nazwa uzytkownika</h2>
       </AvatarWrapper>
 
-      <ChangePasswordButton variant="contained">
+      <ChangePasswordButton
+        variant="contained"
+        onClick={() => setShowPasswordForm(!showPasswordForm)}
+      >
         Zmień hasło
       </ChangePasswordButton>
+
+      {showPasswordForm && (
+        <ChangePasswordForm>
+          <span style={{ alignSelf: 'flex-start', marginBottom: 10 }}>
+            Zmień hasło
+          </span>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="nowe hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="powtórz hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <SaveChangesButton variant="contained">
+            Zapisz zmiany
+          </SaveChangesButton>
+        </ChangePasswordForm>
+      )}
 
       <h2>Grupy w których jesteś starostą:</h2>
       <List sx={{ width: '100%' }}>
