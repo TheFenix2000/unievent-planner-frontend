@@ -1,7 +1,13 @@
-import React from 'react';
+import { CssBaseline } from "@mui/material";
+import { AddEvent } from "./addEvent";
 
 const App = () => {
-  return <h1>Univent Planner</h1>;
+  return (
+    <>
+    <CssBaseline/>
+    <AddEvent/>
+    </>
+  )
 };
 
 export default App;
