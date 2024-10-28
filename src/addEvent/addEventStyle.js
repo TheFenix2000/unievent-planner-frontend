@@ -1,6 +1,5 @@
 import { styled } from '@mui/material';
-import { IconButton, Box, Button, TextField, FormControl, MenuItem} from '@mui/material';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { Box, Button, TextField, FormControl } from '@mui/material';
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -8,18 +7,6 @@ export const Wrapper = styled(Box)`
   height: 100vh;
   padding: 32px;
   box-sizing: border-box;
-  @media (max-width: 600px) {
-    padding: "auto";
-  }
-`;
-
-export const BackButton = styled(IconButton)`
-    position: absolute;
-    border-radius: 9999px;
-    border: 2px solid #bbbbbb;
-  @media {
-    color: black;
-  }
 `;
 
 export const BootstrapButton = styled(Button)({
@@ -46,7 +33,7 @@ export const BootstrapButton = styled(Button)({
     '"Apple Color Emoji"',
     '"Segoe UI Emoji"',
     '"Segoe UI Symbol"',
-    'color: white'
+    'color: white',
   ].join(','),
   '&:hover': {
     backgroundColor: '#F13D42',
@@ -69,7 +56,7 @@ export const CustomTextField = styled(TextField)({
     },
   },
   '& .MuiInputLabel-root': {
-    color: 'black', 
+    color: 'black',
   },
   '& .MuiInputLabel-root.Mui-focused': {
     color: 'black',
@@ -97,13 +84,7 @@ export const CustomFormControl = styled(FormControl)({
   },
 });
 
-export const CustomDemoContainer = styled(DemoContainer)({
-  '& .MuiInputLabel-root': {
-    color: 'black',
-  },
-  '& .MuiInputLabel-root.Mui-focused': {
-    color: 'black',
-  },
+export const CustomCalendarTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'black',
@@ -116,14 +97,10 @@ export const CustomDemoContainer = styled(DemoContainer)({
       boxShadow: 'none',
     },
   },
-});
-
-export const CustomMenuItem = styled(MenuItem)({
-      padding: '10px',
-      border: '2px solid black', // Black border
-      color: 'black',            // Black text
-      backgroundColor: 'white',  // Optional: white background
-      textAlign: 'center',       // Center text
-      cursor: 'pointer',         // Pointer cursor on hover
-      transition: 'background-color 0.3s', // Transition effect
+  '& .MuiInputLabel-root': {
+    color: 'black',
+  },
+  '& .MuiInputLabel-root.Mui-focused': {
+    color: 'black',
+  },
 });
