@@ -1,7 +1,8 @@
+// calendarViewStyles.ts
 import { styled } from '@mui/material';
 import { Box, Button } from '@mui/material';
 
-import { theme } from '../assets/styles/theme';
+import { theme } from '../../assets/styles/theme';
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -13,6 +14,7 @@ export const Wrapper = styled(Box)`
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  font-family: 'Inter', sans-serif;
   @media (max-width: 600px) {
     padding: 16px;
   }
@@ -21,9 +23,7 @@ export const Wrapper = styled(Box)`
 export const Announcements = styled(Box)`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  // flex: 1;
   width: 90%;
   height: 100%;
   padding: 16px;
@@ -33,17 +33,15 @@ export const Announcements = styled(Box)`
   bottom: -93%;
   background-color: ${theme.colors.grey_10};
   font-size: 32px;
-  font-family: Arial;
 
   @media (max-width: 600px) {
     padding: 1.37rem;
-    // margin-bottom: 10px;
   }
 `;
 
 export const AddButton = styled(Button)`
   background-color: ${theme.colors.red_100};
-  color: white;
+  color: ${theme.colors.white_100};
   &:hover {
     background-color: ${theme.colors.red_100};
   }
@@ -52,7 +50,6 @@ export const AddButton = styled(Button)`
   font-size: 18px;
   border-radius: 8px;
   width: 100%;
-  position absolute;
   @media (max-width: 600px) {
     margin: 5px 0 10px;
     padding: 12px 0;
