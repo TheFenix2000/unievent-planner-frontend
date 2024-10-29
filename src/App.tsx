@@ -1,13 +1,7 @@
 import React from 'react';
 
-import { ProfileView } from './profileView/profileView';
-
 const App = () => {
-  return (
-    <>
-      <ProfileView />
-    </>
-  );
+  return <h1>Univent Planner</h1>;
 };
 
 export default App;

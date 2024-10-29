@@ -49,7 +49,7 @@ export const ProfileView = () => {
           </EditButton>
         </EditButtonWrapper>
 
-        <h2>Nazwa uzytkownika</h2>
+        <p>Nazwa uzytkownika</p>
       </AvatarWrapper>
 
       <ChangePasswordButton
@@ -100,7 +100,9 @@ export const ProfileView = () => {
         </ChangePasswordForm>
       )}
 
-      <h2>Grupy w których jesteś starostą:</h2>
+      <p style={{ fontSize: '22px', margin: '.5rem' }}>
+        Grupy w których jesteś starostą:
+      </p>
       <List sx={{ width: '100%' }}>
         {generate(
           <Item>
@@ -116,7 +118,9 @@ export const ProfileView = () => {
         )}
       </List>
 
-      <h2>Grupy do których nalezysz:</h2>
+      <p style={{ fontSize: '22px', margin: '.5rem' }}>
+        Grupy do których nalezysz:
+      </p>
       <List sx={{ width: '100%' }}>
         {generate(
           <Item>

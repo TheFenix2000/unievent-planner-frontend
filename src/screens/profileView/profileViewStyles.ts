@@ -2,7 +2,7 @@ import { Input, inputClasses } from '@mui/base/Input';
 import { styled } from '@mui/material';
 import { Box, Button, IconButton, ListItem } from '@mui/material';
 
-import { theme } from '../assets/styles/theme';
+import { theme } from '../../assets/styles/theme';
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -12,6 +12,7 @@ export const Wrapper = styled(Box)`
   padding: 32px;
   box-sizing: border-box;
   position: relative;
+  font-family: 'Inter', sans-serif;
   @media (max-width: 600px) {
     padding: 16px;
   }
@@ -29,15 +30,14 @@ export const BackButtonWrapper = styled(Box)`
   display: flex;
   margin-right: auto;
   justify-content: flex-start;
-  background-color: #;
 `;
 
 export const EditButton = styled(IconButton)`\
     border-radius: 9999px;
     border: 2px solid ${theme.colors.grey_25};
-      background-color: white;
+      background-color: ${theme.colors.white_100};
   @media {
-    color: black;
+    color: ${theme.colors.black_100};
   }
 `;
 
@@ -48,7 +48,6 @@ export const EditButtonWrapper = styled(Box)`
   top: 6rem;
   margin-right: auto;
   justify-content: flex-start;
-  background-color: #;
 `;
 
 export const AvatarWrapper = styled(Box)`
@@ -57,13 +56,13 @@ export const AvatarWrapper = styled(Box)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #;
   margin: 0.5rem;
+  font-size: 24px;
 `;
 
 export const ChangePasswordButton = styled(Button)`
   background-color: ${theme.colors.red_100};
-  color: white;
+  color: ${theme.colors.white_100};
   &:hover {
     background-color: ${theme.colors.red_100};
   }
@@ -126,13 +125,13 @@ export const ChangePasswordForm = styled(Box)`
   margin-right: auto;
   padding: 1rem;
   border-style: solid;
-  border-color: black;
+  border-color: ${theme.colors.black_100};
   border-radius: 1rem;
 `;
 
 export const SaveChangesButton = styled(Button)`
   background-color: ${theme.colors.red_100};
-  color: white;
+  color: ${theme.colors.white_100};
   &:hover {
     background-color: ${theme.colors.red_100};
   }
