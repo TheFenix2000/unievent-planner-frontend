@@ -50,5 +50,4 @@ export const Item = styled(ListItem)`
 export const BackButtonWrapper = styled(Box)`
   display: flex;
   justify-content: flex-start;
-  background-color: #;
 `;

@@ -1,14 +1,12 @@
 import * as React from 'react';
-
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-
 import { BackButton, Item, RemoveButton, Wrapper } from './manageUsersStyle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ManageUsers = () => {
   function generate(element: React.ReactElement) {
@@ -22,7 +20,7 @@ const ManageUsers = () => {
   return (
     <Wrapper>
       <BackButton>
-        <ArrowBackIcon></ArrowBackIcon>
+        <FontAwesomeIcon icon={faArrowLeft} />
       </BackButton>
       <Typography sx={{ mt: 8, mb: 1, ml: 1 }} variant="h6" component="div">
         Członkowie
@@ -40,7 +38,7 @@ const ManageUsers = () => {
           <Item
             secondaryAction={
               <RemoveButton edge="end" aria-label="delete">
-                <DeleteIcon />
+                <FontAwesomeIcon icon={faTrash} />
               </RemoveButton>
             }
           >
