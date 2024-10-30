@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import { Box, Button, TextField, FormControl } from '@mui/material';
+import { Box, Button, TextField, FormControl, MenuItem } from '@mui/material';
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -46,13 +46,16 @@ export const CustomTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&:hover fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&.Mui-focused fieldset': {
       borderColor: 'black',
       boxShadow: 'none',
+      borderWidth: '1px',
     },
   },
   '& .MuiInputLabel-root': {
@@ -73,13 +76,16 @@ export const CustomFormControl = styled(FormControl)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&:hover fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&.Mui-focused fieldset': {
       borderColor: 'black',
       boxShadow: 'none',
+      borderWidth: '1px',
     },
   },
 });
@@ -88,19 +94,30 @@ export const CustomCalendarTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&:hover fieldset': {
       borderColor: 'black',
+      borderWidth: '1px',
     },
     '&.Mui-focused fieldset': {
       borderColor: 'black',
       boxShadow: 'none',
+      borderWidth: '1px',
     },
   },
   '& .MuiInputLabel-root': {
     color: 'black',
+    borderWidth: '1px',
   },
   '& .MuiInputLabel-root.Mui-focused': {
     color: 'black',
+    borderWidth: '1px',
   },
+});
+
+export const CustomMenuItem = styled(MenuItem)({
+  border: '1px solid black',
+  borderRadius: '4px',
+  margin: '4px 0',
 });

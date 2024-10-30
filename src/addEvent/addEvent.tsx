@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { useState } from 'react';
 
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { faArrowLeft, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,24 +19,13 @@ import {
   CustomTextField,
   CustomFormControl,
   CustomCalendarTextField,
+  CustomMenuItem,
 } from './addEventStyle';
 
 export const AddEvent = () => {
   const [group, setGroup] = React.useState('');
 
   const [type, setType] = React.useState('');
-
-  function BasicDatePicker() {
-    return (
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          label="Data"
-          disablePast
-          slots={{ textField: CustomCalendarTextField }}
-        />
-      </LocalizationProvider>
-    );
-  }
 
   const handleChange = (event: SelectChangeEvent) => {
     setGroup(event.target.value as string);
@@ -51,23 +43,56 @@ export const AddEvent = () => {
     setText(event.target.value);
   };
 
+  function BasicDatePicker() {
+    return (
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          label="Data"
+          disablePast
+          slots={{ textField: CustomCalendarTextField }}
+        />
+      </LocalizationProvider>
+    );
+  }
+
   return (
     <Wrapper>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 54 54"
-        width="54px"
-        height="54px"
+      <Box
+        component="form"
+        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        noValidate
+        autoComplete="off"
+        flex-direction="column"
       >
-        <path
-          fill="#bbbbbb"
-          d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM256 128l-32 0L96 256 224 384l32 0 0-80 128 0 0-96-128 0 0-80z"
-        />
-      </svg>
+        <div
+          style={{
+            position: 'relative',
+            display: 'inline-block',
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            size="1x"
+            style={{
+              position: 'absolute',
+              color: 'black',
+              transform: 'translate(60%, 50%)', // Center the arrow in the middle of the circle
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faCircle}
+            size="2x"
+            style={{
+              color: '#BBBBBB',
+              top: '0',
+              left: '0',
+            }}
+          />
+        </div>
+      </Box>
       <Typography sx={{ ml: 1 }} variant="h6" component="div" fontSize={30}>
         Dodaj wydarzenie dla grupy
       </Typography>
-
       <Box
         component="form"
         sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
@@ -110,7 +135,7 @@ export const AddEvent = () => {
         autoComplete="off"
         flex-direction="column"
       >
-        <CustomFormControl>
+        <CustomFormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Grupa</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -118,11 +143,21 @@ export const AddEvent = () => {
             label="Grupa"
             variant="outlined"
             value={group}
+            fullWidth
             onChange={handleChange}
+            IconComponent={() => (
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                style={{
+                  color: '#BBBBBB',
+                  transform: 'translate(-100%, 0%)',
+                }}
+              />
+            )}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Ten</MenuItem>
-            <MenuItem value={30}>Ten</MenuItem>
+            <CustomMenuItem value={10}>Ten</CustomMenuItem>
+            <CustomMenuItem value={20}>Ten</CustomMenuItem>
+            <CustomMenuItem value={30}>Ten</CustomMenuItem>
           </Select>
         </CustomFormControl>
       </Box>
@@ -142,6 +177,15 @@ export const AddEvent = () => {
             variant="outlined"
             value={type}
             onChange={makeChange}
+            IconComponent={() => (
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                style={{
+                  color: '#BBBBBB',
+                  transform: 'translate(-100%, 0%)',
+                }}
+              />
+            )}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Ten</MenuItem>
