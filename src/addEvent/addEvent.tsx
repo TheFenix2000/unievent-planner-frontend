@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { faArrowLeft, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -20,21 +19,11 @@ import {
   CustomFormControl,
   CustomCalendarTextField,
   CustomMenuItem,
+  CustomMenuItemTop,
+  CustomMenuItemBottom,
 } from './addEventStyle';
 
 export const AddEvent = () => {
-  const [group, setGroup] = React.useState('');
-
-  const [type, setType] = React.useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setGroup(event.target.value as string);
-  };
-
-  const makeChange = (event: SelectChangeEvent) => {
-    setType(event.target.value as string);
-  };
-
   const [text, setText] = useState<string>('');
 
   const handleInput = (
@@ -55,11 +44,41 @@ export const AddEvent = () => {
     );
   }
 
+  const [dropdownHeight, setDropdownHeight] = useState(0);
+  const [openGrupa, setOpenGrupa] = useState(false);
+  const [openTyp, setOpenTyp] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleToggleGrupa = (isOpen) => {
+    setOpenGrupa(isOpen);
+    if (isOpen) {
+      setTimeout(() => {
+        if (dropdownRef.current) {
+          setDropdownHeight(dropdownRef.current.clientHeight);
+        }
+      }, 0);
+    } else {
+      setDropdownHeight(0);
+    }
+  };
+  const handleToggleTyp = (isOpen) => {
+    setOpenTyp(isOpen);
+    if (isOpen) {
+      setTimeout(() => {
+        if (dropdownRef.current) {
+          setDropdownHeight(dropdownRef.current.clientHeight);
+        }
+      }, 0);
+    } else {
+      setDropdownHeight(0);
+    }
+  };
+
   return (
     <Wrapper>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
         noValidate
         autoComplete="off"
         flex-direction="column"
@@ -76,7 +95,7 @@ export const AddEvent = () => {
             style={{
               position: 'absolute',
               color: 'black',
-              transform: 'translate(60%, 50%)', // Center the arrow in the middle of the circle
+              transform: 'translate(60%, 50%)',
             }}
           />
           <FontAwesomeIcon
@@ -95,12 +114,14 @@ export const AddEvent = () => {
       </Typography>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
         noValidate
         autoComplete="off"
         flex-direction="column"
       >
         <CustomTextField
+          style={{ width: '100%' }}
+          fullWidth
           id="outlined-basic"
           label="Nazwa wydarzenia"
           sx={{ input: { color: 'black' } }}
@@ -108,7 +129,7 @@ export const AddEvent = () => {
       </Box>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
         noValidate
         autoComplete="off"
         flex-direction="column"
@@ -117,7 +138,7 @@ export const AddEvent = () => {
       </Box>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
         noValidate
         autoComplete="off"
         flex-direction="column"
@@ -130,72 +151,160 @@ export const AddEvent = () => {
       </Box>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{
+          position: 'relative',
+          '& > :not(style)': { marginTop: 2, width: '100%' },
+          transition: 'margin 0.3s ease',
+          marginBottom: openGrupa ? `${dropdownHeight}px` : '0px',
+        }}
         noValidate
         autoComplete="off"
         flex-direction="column"
       >
-        <CustomFormControl fullWidth>
+        <CustomFormControl
+          fullWidth
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderBottomLeftRadius: openGrupa ? '0px' : '4px',
+                borderBottomRightRadius: openGrupa ? '0px' : '4px',
+              },
+            },
+          }}
+        >
           <InputLabel id="demo-simple-select-label">Grupa</InputLabel>
           <Select
+            fullWidth
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="Grupa"
             variant="outlined"
-            value={group}
-            fullWidth
-            onChange={handleChange}
+            onClick={() => handleToggleGrupa(!openGrupa)}
+            inputProps={{
+              sx: {
+                borderBottomLeftRadius: open ? 0 : '4px',
+                borderBottomRightRadius: open ? 0 : '4px',
+                transition: 'border-radius 0.3s ease',
+              },
+            }}
+            open={openGrupa}
+            onOpen={() => handleToggleGrupa(true)}
+            onClose={() => handleToggleGrupa(false)}
+            MenuProps={{
+              disableScrollLock: true,
+              PaperProps: {
+                ref: dropdownRef,
+                sx: {
+                  borderLeft: '1px solid black',
+                  borderRight: '1px solid black',
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                  borderBottomLeftRadius: '4px',
+                  borderBottomRightRadius: '4px',
+                  '& .MuiList-root': {
+                    paddingBottom: 0,
+                    paddingTop: 0,
+                  },
+                  '& .MuiInputBase-root': {
+                    borderBottomLeftRafius: '0px',
+                    borderBottomRightRafius: '0px',
+                  },
+                },
+              },
+            }}
             IconComponent={() => (
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                style={{
-                  color: '#BBBBBB',
-                  transform: 'translate(-100%, 0%)',
-                }}
-              />
+              <span style={{ cursor: 'pointer' }}>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  style={{
+                    color: '#BBBBBB',
+                    transform: 'translate(-100%, 0%)',
+                  }}
+                />
+              </span>
             )}
           >
-            <CustomMenuItem value={10}>Ten</CustomMenuItem>
+            <CustomMenuItemTop value={10}>Ten</CustomMenuItemTop>
             <CustomMenuItem value={20}>Ten</CustomMenuItem>
-            <CustomMenuItem value={30}>Ten</CustomMenuItem>
+            <CustomMenuItemBottom value={30}>Ten</CustomMenuItemBottom>
           </Select>
         </CustomFormControl>
       </Box>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{
+          '& > :not(style)': { marginTop: 2, width: '100%' },
+          transition: 'margin 0.3s ease',
+          marginBottom: openTyp ? `${dropdownHeight}px` : '0px',
+        }}
         noValidate
         autoComplete="off"
         flex-direction="column"
       >
-        <CustomFormControl>
+        <CustomFormControl
+          fullwidth
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderBottomLeftRadius: openTyp ? '0px' : '4px',
+                borderBottomRightRadius: openTyp ? '0px' : '4px',
+              },
+            },
+          }}
+        >
           <InputLabel id="demo-simple-select-label">Typ</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="Typ"
             variant="outlined"
-            value={type}
-            onChange={makeChange}
+            open={openTyp}
+            onClick={() => handleToggleTyp(!openTyp)}
+            onOpen={() => handleToggleTyp(true)}
+            onClose={() => handleToggleTyp(false)}
+            MenuProps={{
+              disableScrollLock: true,
+              PaperProps: {
+                ref: dropdownRef,
+                sx: {
+                  borderLeft: '1px solid black',
+                  borderRight: '1px solid black',
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0,
+                  borderBottomLeftRadius: '4px',
+                  borderBottomRightRadius: '4px',
+                  '& .MuiList-root': {
+                    paddingBottom: 0,
+                    paddingTop: 0,
+                  },
+                  '& .MuiInputBase-root': {
+                    borderBottomLeftRafius: '0px',
+                    borderBottomRightRafius: '0px',
+                  },
+                },
+              },
+            }}
             IconComponent={() => (
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                style={{
-                  color: '#BBBBBB',
-                  transform: 'translate(-100%, 0%)',
-                }}
-              />
+              <span style={{ cursor: 'pointer' }}>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  style={{
+                    color: '#BBBBBB',
+                    transform: 'translate(-100%, 0%)',
+                  }}
+                />
+              </span>
             )}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Ten</MenuItem>
-            <MenuItem value={30}>Ten</MenuItem>
+            <CustomMenuItemTop value={10}>Ten</CustomMenuItemTop>
+            <CustomMenuItem value={20}>Ten</CustomMenuItem>
+            <CustomMenuItemBottom value={30}>Ten</CustomMenuItemBottom>
           </Select>
         </CustomFormControl>
       </Box>
       <Box
         component="form"
-        sx={{ '& > :not(style)': { m: 1, width: '100%' } }}
+        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
         noValidate
         autoComplete="off"
         flex-direction="column"

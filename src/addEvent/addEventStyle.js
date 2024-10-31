@@ -5,7 +5,7 @@ export const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 32px;
+  padding: 10%;
   box-sizing: border-box;
 `;
 
@@ -43,6 +43,7 @@ export const BootstrapButton = styled(Button)({
 });
 
 export const CustomTextField = styled(TextField)({
+  margin: '0px',
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'black',
@@ -117,7 +118,20 @@ export const CustomCalendarTextField = styled(TextField)({
 });
 
 export const CustomMenuItem = styled(MenuItem)({
-  border: '1px solid black',
-  borderRadius: '4px',
-  margin: '4px 0',
+  borderTop: '1px solid black',
+  borderBottom: '1px solid black',
+  borderRadius: '0px',
+  margin: '0px 0',
+});
+
+export const CustomMenuItemTop = styled(MenuItem)({
+  borderTop: '1px solid black',
+  borderRadius: '0px',
+  margin: '0px 0',
+});
+
+export const CustomMenuItemBottom = styled(MenuItem)({
+  borderBottom: '1px solid black',
+  borderRadius: '0px',
+  margin: '0px 0',
 });
