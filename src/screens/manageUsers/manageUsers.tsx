@@ -1,12 +1,14 @@
 import * as React from 'react';
+
+import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+
 import { BackButton, Item, RemoveButton, Wrapper } from './manageUsersStyle';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ManageUsers = () => {
   function generate(element: React.ReactElement) {
