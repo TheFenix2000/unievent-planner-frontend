@@ -10,5 +10,6 @@ export const theme: DefaultTheme = {
     grey_75: '#434343',
     grey_50: '#737373',
     grey_25: '#BBBBBB',
+    grey_10: '#EAEAEA',
   },
 };
