@@ -1,8 +1,4 @@
-import {
-  faPlus,
-  faMagnifyingGlass,
-  faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -19,19 +15,12 @@ import {
   ExpireDate,
   GenerateDate,
   SearchBar,
-  BackArrow,
-  BackButton,
 } from './accessCodeViewStyle';
 
 export const AccessCodeView = () => {
   return (
     <>
       <Wrapper>
-        <BackButton>
-          <BackArrow>
-            <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
-          </BackArrow>
-        </BackButton>
         <Heading>Zarządzaj kodami dostępu</Heading>
         <SearchBar
           placeholder="Wyszukaj grupę"

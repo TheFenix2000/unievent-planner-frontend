@@ -119,29 +119,6 @@ export const GroupPicture = styled(Avatar)`
   margin: 2px 2px 0 2px;
 `;
 
-export const BackArrow = styled(Avatar)`
-  width: 38px;
-  height: 38px;
-  top: 12px;
-  gap: 0px;
-  opacity: 0px;
-  font-size: 26px;
-  color: #000000;
-  background-color: #ffffff;
-  border: solid 2px #bbbbbb;
-`;
-
-export const BackButton = styled(Button)`
-  width: 38px;
-  height: 38px;
-  position: absolute;
-  left: 16px;
-  top: 12px;
-  gap: 0px;
-  opacity: 1;
-  border-radius: 38px;
-`;
-
 export const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
