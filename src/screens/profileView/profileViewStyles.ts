@@ -102,19 +102,15 @@ export const StyledInput = styled(Input)(`
     box-shadow: 0px 2px 2px ${theme.colors.grey_10};
 
     &:hover {
-      border-color: #B0B8C4;
+      border-color: ${theme.colors.red_25};
     }
 
     &:focus {
       outline: 0;
-      border-color: #3399FF;
-      box-shadow: 0 0 0 3px #80BFFF;
+      border-color: ${theme.colors.red_50};
     }
   }
 
-  &.filled .${inputClasses.input} {
-    box-shadow: 0 0 2px 2px rgba(125, 200, 0, 0.25);
-  }
 `);
 
 export const ChangePasswordForm = styled(Box)`
