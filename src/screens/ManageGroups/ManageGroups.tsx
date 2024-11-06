@@ -1,35 +1,23 @@
 import React from 'react';
 
-import { Groups, Person, Edit } from '@mui/icons-material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Edit, ArrowBack } from '@mui/icons-material';
 import { IconButton, Button, Box, Typography, Avatar } from '@mui/material';
 
-import { styles, BackButton, BackButtonWrapper } from './GroupManagementStyles';
+import Header from '../../shared/header';
+import {
+  styles,
+  BackButton,
+  BackButtonWrapper,
+} from '../ManageGroups/GroupManagementStyles';
 
-const GroupManagement: React.FC = () => {
+const GroupManagement = () => {
   return (
     <Box sx={styles.container}>
-      <Box sx={styles.header}>
-        <IconButton>
-          <img
-            src="./univent-icon.svg"
-            alt="Univent Logo"
-            style={styles.univentLogo}
-          />
-        </IconButton>
-        <Box sx={styles.headerIconsRight}>
-          <IconButton>
-            <Groups sx={styles.icon} />
-          </IconButton>
-          <IconButton>
-            <Person sx={styles.icon} />
-          </IconButton>
-        </Box>
-      </Box>
+      <Header />
 
       <BackButtonWrapper>
         <BackButton>
-          <ArrowBackIcon />
+          <ArrowBack />
         </BackButton>
       </BackButtonWrapper>
 
