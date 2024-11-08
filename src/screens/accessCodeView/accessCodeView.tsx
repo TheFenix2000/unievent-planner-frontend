@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Wrapper,
   AddButton,
-  IconWrapper,
   Heading,
   CodeContainer,
   GroupPicture,
-  CodeContainerColumns,
+  PictureAndName,
+  LeftSideCodeContainer,
+  RightSideCodeContainer,
   CodeNumber,
   GroupName,
   UsesLeft,
@@ -31,26 +32,24 @@ export const AccessCodeView = () => {
             />
           }
         ></SearchBar>
+
         <CodeContainer>
-          <CodeContainerColumns container spacing={3} sx={{ flexGrow: 1 }}>
-            <CodeContainerColumns item xs={1}>
+          <LeftSideCodeContainer>
+            <PictureAndName>
               <GroupPicture src="src\assets\images\cat.png" />
-            </CodeContainerColumns>
-            <CodeContainerColumns item xs={6}>
               <GroupName>InformatykaStosowana2023</GroupName>
-              <CodeNumber>KjHB!@4</CodeNumber>
-            </CodeContainerColumns>
-            <CodeContainerColumns item xs={5}>
-              <UsesLeft>Pozostało 5 użyć</UsesLeft>
-              <ExpireDate>Ważny do 05.05.2025</ExpireDate>
-              <GenerateDate>Wygenerowany 12.04.2024</GenerateDate>
-            </CodeContainerColumns>
-          </CodeContainerColumns>
+            </PictureAndName>
+            <CodeNumber>KjHB!@4</CodeNumber>
+          </LeftSideCodeContainer>
+          <RightSideCodeContainer>
+            <UsesLeft>Pozostało 5 użyć</UsesLeft>
+            <ExpireDate>Ważny do 05.05.2025</ExpireDate>
+            <GenerateDate>Wygenerowany 12.04.2024</GenerateDate>
+          </RightSideCodeContainer>
         </CodeContainer>
+
         <AddButton variant="contained">
-          <IconWrapper>
-            <FontAwesomeIcon icon={faPlus} />
-          </IconWrapper>
+          <FontAwesomeIcon icon={faPlus} style={{ margin: 2 }} />
           Nowy kod
         </AddButton>
       </Wrapper>
