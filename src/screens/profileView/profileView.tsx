@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormControl, FormControlState } from '@mui/base/FormControl';
-import EditIcon from '@mui/icons-material/Edit';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -36,7 +37,7 @@ export const ProfileView = () => {
         <Avatar sx={{ width: 130, height: 130 }} src="" />
         <EditButtonWrapper>
           <EditButton>
-            <EditIcon />
+            <FontAwesomeIcon icon={faPen} />
           </EditButton>
         </EditButtonWrapper>
 
