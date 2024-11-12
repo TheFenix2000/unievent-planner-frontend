@@ -18,20 +18,6 @@ export const Wrapper = styled(Box)`
   }
 `;
 
-export const BackButton = styled(IconButton)`\
-    border-radius: 9999px;
-    border: 2px solid ${theme.colors.grey_25};
-  @media {
-    color: ${theme.colors.black_100};
-  }
-`;
-
-export const BackButtonWrapper = styled(Box)`
-  display: flex;
-  margin-right: auto;
-  justify-content: flex-start;
-`;
-
 export const EditButton = styled(IconButton)`\
     border-radius: 9999px;
     border: 2px solid ${theme.colors.grey_25};
