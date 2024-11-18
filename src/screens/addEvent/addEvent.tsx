@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
 
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { faArrowLeft, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -22,6 +21,7 @@ import {
   CustomMenuItemTop,
   CustomMenuItemBottom,
 } from './addEventStyle';
+import { theme } from '../../assets/styles/theme';
 
 export const AddEvent = () => {
   const [text, setText] = useState<string>('');
@@ -76,39 +76,6 @@ export const AddEvent = () => {
 
   return (
     <Wrapper>
-      <Box
-        component="form"
-        sx={{ '& > :not(style)': { marginTop: 2, width: '100%' } }}
-        noValidate
-        autoComplete="off"
-        flex-direction="column"
-      >
-        <div
-          style={{
-            position: 'relative',
-            display: 'inline-block',
-          }}
-        >
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            size="1x"
-            style={{
-              position: 'absolute',
-              color: 'black',
-              transform: 'translate(60%, 50%)',
-            }}
-          />
-          <FontAwesomeIcon
-            icon={faCircle}
-            size="2x"
-            style={{
-              color: '#BBBBBB',
-              top: '0',
-              left: '0',
-            }}
-          />
-        </div>
-      </Box>
       <Typography sx={{ ml: 1 }} variant="h6" component="div" fontSize={30}>
         Dodaj wydarzenie dla grupy
       </Typography>
@@ -124,7 +91,7 @@ export const AddEvent = () => {
           fullWidth
           id="outlined-basic"
           label="Nazwa wydarzenia"
-          sx={{ input: { color: 'black' } }}
+          sx={{ input: { color: theme.colors.black_100 } }}
         />
       </Box>
       <Box
@@ -195,8 +162,9 @@ export const AddEvent = () => {
               PaperProps: {
                 ref: dropdownRef,
                 sx: {
-                  borderLeft: '1px solid black',
-                  borderRight: '1px solid black',
+                  borderLeft: '1px solid',
+                  borderRight: '1px solid',
+                  borderColor: theme.colors.black_100,
                   borderTopLeftRadius: 0,
                   borderTopRightRadius: 0,
                   borderBottomLeftRadius: '4px',
@@ -217,7 +185,7 @@ export const AddEvent = () => {
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   style={{
-                    color: '#BBBBBB',
+                    color: theme.colors.grey_25,
                     transform: 'translate(-100%, 0%)',
                   }}
                 />
@@ -267,8 +235,9 @@ export const AddEvent = () => {
               PaperProps: {
                 ref: dropdownRef,
                 sx: {
-                  borderLeft: '1px solid black',
-                  borderRight: '1px solid black',
+                  borderLeft: '1px solid',
+                  borderRight: '1px solid',
+                  borderColor: theme.colors.black_100,
                   borderTopLeftRadius: 0,
                   borderTopRightRadius: 0,
                   borderBottomLeftRadius: '4px',
@@ -289,7 +258,7 @@ export const AddEvent = () => {
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   style={{
-                    color: '#BBBBBB',
+                    color: theme.colors.grey_25,
                     transform: 'translate(-100%, 0%)',
                   }}
                 />

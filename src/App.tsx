@@ -1,6 +1,6 @@
 import { CssBaseline } from '@mui/material';
 
-import { AddEvent } from './addEvent/addEvent';
+import { AddEvent } from './screens/addEvent/addEvent';
 
 const App = () => {
   return (
