@@ -15,58 +15,59 @@ export const ManageEvents = () => {
           Wydarzenia dodane przez ciebie
         </Typography>
       </Box>
-
-      <Box sx={styles.eventCard}>
-        <Box sx={styles.groupInfo}>
-          <Box>
-            <Typography sx={styles.eventName}>Lorem Ipsum</Typography>
-            <Typography sx={styles.eventDateTime}>
-              06.09.2024 09:00 - 12:00
-            </Typography>
-            <Typography sx={styles.eventDescription}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </Typography>
-            <Typography sx={styles.groupName}>
-              dla InformatykaStosowana2023
-            </Typography>
+      <Box sx={styles.events}>
+        <Box sx={styles.eventCard}>
+          <Box sx={styles.groupInfo}>
+            <Box>
+              <Typography sx={styles.eventName}>Lorem Ipsum</Typography>
+              <Typography sx={styles.eventDateTime}>
+                06.09.2024 09:00 - 12:00
+              </Typography>
+              <Typography sx={styles.eventDescription}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </Typography>
+              <Typography sx={styles.groupName}>
+                dla InformatykaStosowana2023
+              </Typography>
+            </Box>
           </Box>
+          <IconButton>
+            <FontAwesomeIcon
+              icon={faPen}
+              style={{
+                color: theme.colors.white_100,
+                marginTop: '-400%',
+                marginRight: '-100%',
+              }}
+            />
+          </IconButton>
         </Box>
-        <IconButton>
-          <FontAwesomeIcon
-            icon={faPen}
-            style={{
-              color: theme.colors.white_100,
-              marginTop: '-400%',
-              marginRight: '-100%',
-            }}
-          />
-        </IconButton>
-      </Box>
-      <Box sx={styles.eventCard}>
-        <Box sx={styles.groupInfo}>
-          <Box>
-            <Typography sx={styles.eventName}>Lorem Ipsum</Typography>
-            <Typography sx={styles.eventDateTime}>
-              06.09.2024 09:00 - 12:00
-            </Typography>
-            <Typography sx={styles.eventDescription}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </Typography>
-            <Typography sx={styles.groupName}>
-              dla InformatykaStosowana2023
-            </Typography>
+        <Box sx={styles.eventCard}>
+          <Box sx={styles.groupInfo}>
+            <Box>
+              <Typography sx={styles.eventName}>Lorem Ipsum</Typography>
+              <Typography sx={styles.eventDateTime}>
+                06.09.2024 09:00 - 12:00
+              </Typography>
+              <Typography sx={styles.eventDescription}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </Typography>
+              <Typography sx={styles.groupName}>
+                dla InformatykaStosowana2023
+              </Typography>
+            </Box>
           </Box>
+          <IconButton>
+            <FontAwesomeIcon
+              icon={faPen}
+              style={{
+                color: theme.colors.white_100,
+                marginTop: '-400%',
+                marginRight: '-100%',
+              }}
+            />
+          </IconButton>
         </Box>
-        <IconButton>
-          <FontAwesomeIcon
-            icon={faPen}
-            style={{
-              color: theme.colors.white_100,
-              marginTop: '-400%',
-              marginRight: '-100%',
-            }}
-          />
-        </IconButton>
       </Box>
     </Box>
   );
