@@ -210,7 +210,7 @@ export const AddEvent = () => {
         flex-direction="column"
       >
         <CustomFormControl
-          fullwidth
+          fullWidth
           sx={{
             '& .MuiOutlinedInput-root': {
               '& fieldset': {
