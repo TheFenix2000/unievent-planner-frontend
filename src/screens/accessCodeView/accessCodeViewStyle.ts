@@ -11,23 +11,27 @@ import {
 import { theme } from '../../assets/styles/theme';
 
 export const Heading = styled(Typography)`
-  width: 80vw;
   font-family: Inter, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   text-align: left;
-  margin: 2rem 1rem 2rem 1rem;
+  margin: 0 0 1.5rem 0;
 `;
 
 export const SearchBar = styled(Input)`
   border-bottom: 0.125rem solid ${theme.colors.grey_25};
   width: 98%;
   margin: 0.5rem auto;
-  font-size: 1rem;
+  font-size: 1.5rem;
   & .MuiInputBase-input::placeholder {
     color: ${theme.colors.black_100};
     opacity: 1;
   }
+`;
+
+export const CodeContainers = styled(Container)`
+  gap: 1rem;
+  flex: 1 1 0%;
 `;
 
 export const CodeContainer = styled(Box)`
@@ -35,7 +39,6 @@ export const CodeContainer = styled(Box)`
   justify-content: space-between;
   gap: 0.05rem;
   border-radius: 0.5rem;
-  padding: 0.05rem 0.1rem;
   background-color: ${theme.colors.red_25};
 `;
 
@@ -43,16 +46,17 @@ export const LeftSideCodeContainer = styled(Container)``;
 export const RightSideCodeContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0.5rem 0.5rem 0.1rem;
+  align-self: right;
+  overflow: hidden;
+  padding: 1.75rem 0.5rem 0.5rem 0.1rem;
 `;
 
 export const GroupName = styled(Typography)`
   font-family: Inter, sans-serif;
   font-weight: 400;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   text-align: center;
   margin: 0.75rem;
-  }
 `;
 
 export const PictureAndName = styled(Box)`
@@ -62,21 +66,20 @@ export const PictureAndName = styled(Box)`
 
 export const CodeNumber = styled(Typography)`
   font-family: Inter, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
   font-weight: 400;
-  padding: 0.05rem;
-  }
+  padding-bottom: 0.75rem;
 `;
 
 export const SideText = styled(Typography)`
   color: ${theme.colors.grey_50};
   font-family: Inter, sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 400;
   text-align: left;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.05rem;
 `;
 
 export const UsesLeft = styled(SideText)``;
@@ -90,7 +93,7 @@ export const Wrapper = styled(Box)`
   align-items: center;
   height: 100vh;
   width: 100%;
-  padding: 1rem;
+  padding: 0 2rem;
   box-sizing: border-box;
   position: relative;
   overflow-y: auto;
@@ -108,6 +111,6 @@ export const AddButton = styled(Button)`
   &:hover {
     background-color: ${theme.colors.red_100};
   }
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 2rem;
 `;

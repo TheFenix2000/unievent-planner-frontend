@@ -6,6 +6,7 @@ import {
   AddButton,
   Heading,
   CodeContainer,
+  CodeContainers,
   GroupPicture,
   PictureAndName,
   LeftSideCodeContainer,
@@ -33,20 +34,22 @@ export const AccessCodeView = () => {
           }
         ></SearchBar>
 
-        <CodeContainer>
-          <LeftSideCodeContainer>
-            <PictureAndName>
-              <GroupPicture src="src\assets\images\cat.png" />
-              <GroupName>InformatykaStosowana2023</GroupName>
-            </PictureAndName>
-            <CodeNumber>KjHB!@4</CodeNumber>
-          </LeftSideCodeContainer>
-          <RightSideCodeContainer>
-            <UsesLeft>Pozostało 5 użyć</UsesLeft>
-            <ExpireDate>Ważny do 05.05.2025</ExpireDate>
-            <GenerateDate>Wygenerowany 12.04.2024</GenerateDate>
-          </RightSideCodeContainer>
-        </CodeContainer>
+        <CodeContainers>
+          <CodeContainer>
+            <LeftSideCodeContainer>
+              <PictureAndName>
+                <GroupPicture src="" alt="GroupPicture" />
+                <GroupName>InformatykaStosowana2023</GroupName>
+              </PictureAndName>
+              <CodeNumber>KjHB!@4</CodeNumber>
+            </LeftSideCodeContainer>
+            <RightSideCodeContainer>
+              <UsesLeft>Pozostało 5 użyć</UsesLeft>
+              <ExpireDate>Ważny do 05.05.2025</ExpireDate>
+              <GenerateDate>Wygenerowany 12.04.2024</GenerateDate>
+            </RightSideCodeContainer>
+          </CodeContainer>
+        </CodeContainers>
 
         <AddButton variant="contained">
           <FontAwesomeIcon icon={faPlus} style={{ margin: 2 }} />
