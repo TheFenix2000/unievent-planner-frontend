@@ -9,12 +9,12 @@ export const Wrapper = styled(Box)`
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  padding: 32px;
+  padding: 0 2rem;
   box-sizing: border-box;
   position: relative;
   font-family: 'Inter', sans-serif;
   @media (max-width: 600px) {
-    padding: 16px;
+    padding: 0 1rem;
   }
 `;
 
@@ -43,7 +43,7 @@ export const AvatarWrapper = styled(Box)`
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
-  font-size: 24px;
+  font-size: 1.5rem;
 `;
 
 export const ChangePasswordButton = styled(Button)`
@@ -54,13 +54,13 @@ export const ChangePasswordButton = styled(Button)`
   }
   margin: 10px 0 15px;
   padding: 16px 0;
-  font-size: 18px;
+  font-size: 1.25rem;
   border-radius: 8px;
   width: 90%;
   @media (max-width: 600px) {
     margin: 5px 0 10px;
     padding: 12px 0;
-    font-size: 16px;
+    font-size: 1.25rem;
   }
 `;
 
@@ -76,8 +76,8 @@ export const StyledInput = styled(Input)(`
 
   .${inputClasses.input} {
     width: 18.5rem;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.5;
     padding: 8px 12px;
@@ -120,13 +120,13 @@ export const SaveChangesButton = styled(Button)`
   align-self: flex-end;
   margin: 10px 0 15px;
   padding: 16px 0;
-  font-size: 18px;
+  font-size: 0.75rem;
   border-radius: 2rem;
   width: 40%;
   height: 17%;
   @media (max-width: 600px) {
     margin: 0.5rem 0 -0.7rem;
     padding: 12px 0;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 `;

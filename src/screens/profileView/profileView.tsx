@@ -23,13 +23,54 @@ import {
 export const ProfileView = () => {
   const [showPasswordForm, setShowPasswordForm] = React.useState(false);
 
-  function generate(element: React.ReactElement) {
-    return [0, 1, 2, 3, 4].map((value) =>
-      React.cloneElement(element, {
-        key: value,
-      }),
-    );
+  type Group = {
+    zdjecie: string;
+    nazwa_grupy: string;
+    ilosc_czlonkow: number;
+  };
+
+  function generate(grupy: Group[]) {
+    return grupy.map((grupa, index) => (
+      <Item key={index}>
+        <ListItemAvatar>
+          <Avatar src={grupa.zdjecie}></Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          sx={{ wordWrap: 'break-word' }}
+          primary={grupa.nazwa_grupy}
+          secondary={`${grupa.ilosc_czlonkow} członków`}
+        />
+      </Item>
+    ));
   }
+
+  // Przykładowe dane
+  const MasterGrups: Group[] = [
+    {
+      zdjecie: 'zdjecie.png',
+      nazwa_grupy: 'Informatyka Stosowana 2023',
+      ilosc_czlonkow: 25,
+    },
+    {
+      zdjecie: 'zdjecie2.png',
+      nazwa_grupy: 'Programowanie w JavaScript',
+      ilosc_czlonkow: 15,
+    },
+    //...
+  ];
+  const Grups: Group[] = [
+    {
+      zdjecie: 'zdjecie3.png',
+      nazwa_grupy: 'Systemy operacyjne',
+      ilosc_czlonkow: 25,
+    },
+    {
+      zdjecie: 'zdjecie4.png',
+      nazwa_grupy: 'PP4',
+      ilosc_czlonkow: 35,
+    },
+    //...
+  ];
 
   return (
     <Wrapper>
@@ -95,38 +136,12 @@ export const ProfileView = () => {
       <p style={{ fontSize: '22px', margin: '.5rem' }}>
         Grupy w których jesteś starostą:
       </p>
-      <List sx={{ width: '100%' }}>
-        {generate(
-          <Item>
-            <ListItemAvatar>
-              <Avatar src={''}></Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              sx={{ wordWrap: 'break-word' }}
-              primary="InformatykaStosowana2023JestSuper!"
-              secondary="42 członków"
-            />
-          </Item>,
-        )}
-      </List>
+      <List sx={{ width: '100%' }}>{generate(MasterGrups)}</List>
 
       <p style={{ fontSize: '22px', margin: '.5rem' }}>
         Grupy do których nalezysz:
       </p>
-      <List sx={{ width: '100%' }}>
-        {generate(
-          <Item>
-            <ListItemAvatar>
-              <Avatar src={''}></Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              sx={{ wordWrap: 'break-word' }}
-              primary="InformatykaStosowana2023"
-              secondary="Starosta: jankowalski"
-            />
-          </Item>,
-        )}
-      </List>
+      <List sx={{ width: '100%' }}>{generate(Grups)}</List>
     </Wrapper>
   );
 };
