@@ -1,25 +1,17 @@
 import React from 'react';
 
-import { Edit, ArrowBack } from '@mui/icons-material';
+import { Edit } from '@mui/icons-material';
 import { IconButton, Button, Box, Typography, Avatar } from '@mui/material';
 
+import BackButtonComponent from '../../shared/backButton/backButton';
 import Header from '../../shared/header';
-import {
-  styles,
-  BackButton,
-  BackButtonWrapper,
-} from '../ManageGroups/GroupManagementStyles';
+import { styles } from '../ManageGroups/GroupManagementStyles';
 
 const GroupManagement = () => {
   return (
     <Box sx={styles.container}>
       <Header />
-
-      <BackButtonWrapper>
-        <BackButton>
-          <ArrowBack />
-        </BackButton>
-      </BackButtonWrapper>
+      <BackButtonComponent />
 
       <Box sx={styles.manageGroups}>
         <Typography variant="h5" sx={styles.title}>

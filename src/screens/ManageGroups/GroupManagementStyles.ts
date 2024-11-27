@@ -1,12 +1,9 @@
-import { styled } from '@mui/material';
-import { IconButton, Box } from '@mui/material';
-
 import { theme } from '../../assets/styles/theme';
 
 export const styles = {
   container: {
     textAlign: 'center',
-    padding: '2rem',
+    padding: '0 2rem',
   },
   header: {
     display: 'flex',
@@ -26,16 +23,17 @@ export const styles = {
   },
   headerIconsRight: {
     display: 'flex',
-    gap: '1.5rem',
+    gap: '1rem',
   },
   manageGroups: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.5rem',
+    gap: '1rem',
     margin: '1rem',
   },
   title: {
     fontSize: '2rem',
+    margin: '0 0 1.5rem 0',
   },
   groupCard: {
     display: 'flex',
@@ -56,24 +54,24 @@ export const styles = {
     backgroundColor: theme.colors.red_25,
   },
   groupName: {
-    fontSize: '1rem',
+    fontSize: '1.25rem',
     textAlign: 'left',
   },
   groupMembers: {
     color: theme.colors.grey_50,
-    fontSize: '0.8rem',
+    fontSize: '0.75rem',
     textAlign: 'left',
   },
   manageButtons: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '1rem',
     margin: '2rem 0',
   },
   manageButton: {
     padding: '1rem',
     borderRadius: '1rem',
-    fontSize: '1.2rem',
+    fontSize: '1.25rem',
     backgroundColor: theme.colors.red_100,
     fontWeight: 'bold',
     textTransform: 'none',
@@ -82,23 +80,3 @@ export const styles = {
     backgroundColor: theme.colors.red_100,
   },
 };
-
-export const BackButton = styled(IconButton)({
-  borderRadius: '50%',
-  border: `0.2rem solid ${theme.colors.grey_25}`,
-  padding: '0.6rem',
-  backgroundColor: theme.colors.white_100,
-  width: '2.5rem',
-  height: '2.5rem',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  color: theme.colors.black_100,
-});
-
-export const BackButtonWrapper = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-  margin: '1rem',
-});
