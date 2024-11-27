@@ -4,7 +4,6 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormControl, FormControlState } from '@mui/base/FormControl';
 import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 
@@ -18,6 +17,8 @@ import {
   StyledInput,
   ChangePasswordForm,
   SaveChangesButton,
+  StyledParagraph,
+  StyledList,
 } from './profileViewStyles';
 
 export const ProfileView = () => {
@@ -133,15 +134,11 @@ export const ProfileView = () => {
         </ChangePasswordForm>
       )}
 
-      <p style={{ fontSize: '22px', margin: '.5rem' }}>
-        Grupy w których jesteś starostą:
-      </p>
-      <List sx={{ width: '100%' }}>{generate(MasterGrups)}</List>
+      <StyledParagraph>Grupy w których jesteś starostą:</StyledParagraph>
+      <StyledList>{generate(MasterGrups)}</StyledList>
 
-      <p style={{ fontSize: '22px', margin: '.5rem' }}>
-        Grupy do których nalezysz:
-      </p>
-      <List sx={{ width: '100%' }}>{generate(Grups)}</List>
+      <StyledParagraph>Grupy do których nalezysz:</StyledParagraph>
+      <StyledList>{generate(Grups)}</StyledList>
     </Wrapper>
   );
 };

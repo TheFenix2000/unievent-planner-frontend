@@ -1,6 +1,6 @@
 import { Input, inputClasses } from '@mui/base/Input';
 import { styled } from '@mui/material';
-import { Box, Button, IconButton, ListItem } from '@mui/material';
+import { Box, Button, IconButton, ListItem, List } from '@mui/material';
 
 import { theme } from '../../assets/styles/theme';
 
@@ -14,7 +14,7 @@ export const Wrapper = styled(Box)`
   position: relative;
   font-family: 'Inter', sans-serif;
   @media (max-width: 600px) {
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 `;
 
@@ -129,4 +129,16 @@ export const SaveChangesButton = styled(Button)`
     padding: 12px 0;
     font-size: 0.75rem;
   }
+`;
+
+export const StyledParagraph = styled('p')`
+  font-size: 1.25rem;
+  margin: 0.5rem;
+`;
+
+export const StyledList = styled(List)`
+  width: 100%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
