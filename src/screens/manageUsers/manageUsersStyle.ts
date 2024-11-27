@@ -23,9 +23,6 @@ export const Content = styled(Box)`
   flex: 1;
   width: 95%;
   padding: 16px;
-  @media (max-width: 600px) {
-    padding: 8px;
-  }
 `;
 
 export const BackButton = styled(IconButton)`
@@ -44,7 +41,6 @@ export const Item = styled(ListItem)`
   position absolute;
   background-color: ${theme.colors.red_25};
   border-radius: 12px;
-  margin-bottom: 16px;
 `;
 
 export const BackButtonWrapper = styled(Box)`

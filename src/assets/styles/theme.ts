@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
   colors: {
@@ -13,3 +13,8 @@ export const theme: DefaultTheme = {
     grey_10: '#EAEAEA',
   },
 };
+export const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;

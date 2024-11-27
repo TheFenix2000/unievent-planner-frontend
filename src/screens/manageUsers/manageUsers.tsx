@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
@@ -8,7 +8,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
-import { BackButton, Item, RemoveButton, Wrapper } from './manageUsersStyle';
+import { Item, RemoveButton, Wrapper } from './manageUsersStyle';
 
 const ManageUsers = () => {
   function generate(element: React.ReactElement) {
@@ -21,10 +21,7 @@ const ManageUsers = () => {
   const [secondary] = React.useState(false);
   return (
     <Wrapper>
-      <BackButton>
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </BackButton>
-      <Typography sx={{ mt: 8, mb: 1, ml: 1 }} variant="h6" component="div">
+      <Typography sx={{ mb: 1, fontSize: '2rem' }} variant="h6" component="div">
         Członkowie
         <Typography
           variant="h4"
@@ -35,7 +32,14 @@ const ManageUsers = () => {
           NAZWA_GRUPY
         </Typography>
       </Typography>
-      <List>
+      <List
+        sx={{
+          gap: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
         {generate(
           <Item
             secondaryAction={
