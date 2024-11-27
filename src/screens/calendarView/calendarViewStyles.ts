@@ -10,14 +10,12 @@ export const Wrapper = styled(Box)`
   align-items: center;
   height: 100vh;
   width: 100%;
-  padding: 32px;
+  padding: 0 2rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
-  @media (max-width: 600px) {
-    padding: 16px;
-  }
+  gap: 1rem;
 `;
 
 export const Announcements = styled(Box)`
@@ -45,14 +43,7 @@ export const AddButton = styled(Button)`
   &:hover {
     background-color: ${theme.colors.red_100};
   }
-  margin: 10px 0 15px;
-  padding: 16px 0;
-  font-size: 18px;
+  font-size: 1.25rem;
   border-radius: 8px;
   width: 100%;
-  @media (max-width: 600px) {
-    margin: 5px 0 10px;
-    padding: 12px 0;
-    font-size: 16px;
-  }
 `;
