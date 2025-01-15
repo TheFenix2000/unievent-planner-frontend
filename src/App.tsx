@@ -1,14 +1,7 @@
-import { CssBaseline } from '@mui/material';
-
-import { AddEvent } from './screens/addEvent/addEvent';
+import React from 'react';
 
 const App = () => {
-  return (
-    <>
-      <CssBaseline />
-      <AddEvent />
-    </>
-  );
+  return <h1>Univent Planner</h1>;
 };
 
 export default App;
