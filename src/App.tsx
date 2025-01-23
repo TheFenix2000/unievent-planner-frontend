@@ -1,7 +1,7 @@
-import React from 'react';
+import Login from './screens/loginView/login';
 
 const App = () => {
-  return <h1>Univent Planner</h1>;
+  return <Login />;
 };
 
 export default App;
