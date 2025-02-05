@@ -4,15 +4,14 @@ import { useState, useRef } from 'react';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Avatar } from '@mui/material';
+import { Avatar, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
-import { LocalizationProvider } from '@mui/x-date-pickers';
+import { LocalizationProvider, MobileTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Dayjs } from 'dayjs';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 import {
   Wrapper,
@@ -23,10 +22,6 @@ import {
   CustomMenuItemTop,
   CustomMenuItemBottom,
   styles,
-  DateLabel,
-  InputFieldDate,
-  Date,
-  CalendarIcon,
 } from './addEventStyle';
 import { theme } from '../../assets/styles/theme';
 
@@ -68,62 +63,6 @@ export const AddEvent = () => {
       setDropdownHeight(0);
     }
   };
-  const [active, setActive] = useState({
-    name: false,
-    date: false,
-    description: false,
-  });
-
-  const [inputLength, setInputLengths] = useState({
-    name: 0,
-    date: 0,
-    description: 0,
-  });
-
-  const [empty, setEmpty] = useState({
-    name: true,
-    date: true,
-    description: true,
-  });
-  const handleFieldChange = (
-    field: 'name' | 'date' | 'time' | 'description',
-    length: number,
-  ) => {
-    setInputLengths((prev) => ({ ...prev, [field]: length }));
-    setEmpty((prev) => ({ ...prev, [field]: length === 0 }));
-  };
-
-  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
-  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-
-  const handleDateChange = (newValue: Dayjs) => {
-    const formattedDate = newValue ? newValue.format('DD-MM-YYYY') : '';
-    setSelectedDate(newValue);
-    setUserDate(formattedDate);
-    setIsDatePickerOpen(false);
-    handleFieldChange('date', newValue ? 10 : 0);
-    setActive((prev) => ({ ...prev, date: false }));
-    setInputLengths((prev) => ({ ...prev, date: formattedDate.length }));
-    setEmpty((prev) => ({ ...prev, date: !formattedDate }));
-  };
-
-  const handleCalendarIconClick = () => {
-    setIsDatePickerOpen(true);
-    setUserDate('');
-    setActive({ ...active, date: false });
-  };
-
-  const [userDate, setUserDate] = useState('');
-
-  const handleDateInputChange = (event) => {
-    const value = event.target.value;
-    setUserDate(value);
-    handleFieldChange('date', value.length);
-  };
-
-  const handleClick = () => {
-    setSelectedDate(null);
-  };
 
   return (
     <Wrapper>
@@ -139,69 +78,42 @@ export const AddEvent = () => {
       />
       <Box sx={styles.container}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <Date
-            $dateOn={active.date}
-            onFocus={() => {
-              if (!isDatePickerOpen) {
-                setActive({ ...active, date: true });
-              }
+          <MobileDatePicker
+            label="Data"
+            format="DD MMM YYYY"
+            slots={{ textField: CustomTextField }}
+            slotProps={{
+              textField: {
+                inputProps: {
+                  className: CustomTextField, // Apply the custom class here
+                },
+                InputProps: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <FontAwesomeIcon
+                        icon={faCalendar}
+                        style={{
+                          color: theme.colors.grey_25,
+                          height: '1.5rem',
+                          width: '1.5rem',
+                        }}
+                      />
+                    </InputAdornment>
+                  ),
+                },
+              },
             }}
-            onBlur={() => {
-              if (!isDatePickerOpen) {
-                setActive({ ...active, date: false });
-                setEmpty((prev) => ({ ...prev, date: !userDate }));
-              }
-            }}
-          >
-            <DateLabel
-              active={active.date || (!empty.date && inputLength.date > 0)}
-              $dateOn={active.date}
-            >
-              Data
-            </DateLabel>
-            <InputFieldDate
-              placeholder={active.date ? 'DD-MM-YYYY' : ''}
-              value={
-                userDate ||
-                (selectedDate ? selectedDate.format('DD-MM-YYYY') : '')
-              }
-              onChange={handleDateInputChange}
-              onClick={handleClick}
-            />
-            <CalendarIcon icon={faCalendar} onClick={handleCalendarIconClick} />
-            <DatePicker
-              open={isDatePickerOpen}
-              onClose={() => {
-                setIsDatePickerOpen(false);
-                setActive({ ...active, date: false });
-              }}
-              onChange={handleDateChange}
-              disablePast
-              disableOpenPicker
-              desktopModeMediaQuery="(min-width:0px)"
-              slots={{
-                field: () => (
-                  <input
-                    style={{
-                      position: 'absolute',
-                      opacity: 0,
-                      pointerEvents: 'none',
-                      width: 0,
-                      height: 0,
-                    }}
-                  />
-                ),
-              }}
-            />
-          </Date>
+          />
         </LocalizationProvider>
       </Box>
       <Box sx={styles.container}>
-        <CustomTextField
-          id="outlined-basic"
-          label="Godzina"
-          variant="outlined"
-        />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <MobileTimePicker
+            label="Godzina"
+            ampm={false}
+            slots={{ textField: CustomTextField }}
+          />
+        </LocalizationProvider>
       </Box>
       <Box
         sx={{
@@ -212,7 +124,6 @@ export const AddEvent = () => {
         }}
       >
         <CustomFormControl
-          fullWidth
           sx={{
             '& .MuiOutlinedInput-root': {
               '& fieldset': {
