@@ -1,40 +1,14 @@
-import React, { useState } from 'react';
-
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-
-import { auth } from '../../config/firebaseConfig';
+import { getToken, googleLogin, logout } from '../../services/authService';
 
 const Login: React.FC = () => {
-  const [token, setToken] = useState<string | null>(null);
-
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const token = await result.user.getIdToken();
-      setToken(token);
-      console.log('Token:', token);
-      const response = await fetch(
-        'http://localhost:4455/api/v1/auth/verify-token',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-      console.log('Verify Token Response:', response);
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
-
   const handleAdminRoute = async () => {
-    if (!token) {
+    const token = await getToken();
+    if (token === null) {
       alert('Please login first');
       return;
     }
+    console.log('Token admin:', token);
+
     try {
       const response = await fetch('http://localhost:4455/api/v1/admin-route', {
         method: 'GET',
@@ -52,7 +26,8 @@ const Login: React.FC = () => {
   };
 
   const handleUserRoute = async () => {
-    if (!token) {
+    const token = await getToken();
+    if (token === null) {
       alert('Please login first');
       return;
     }
@@ -74,9 +49,10 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <button onClick={handleGoogleLogin}>Login with Google</button>
+      <button onClick={googleLogin}>Login with Google</button>
       <button onClick={handleAdminRoute}>Test Admin Route</button>
       <button onClick={handleUserRoute}>Test User Route</button>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 };
