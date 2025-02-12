@@ -85,7 +85,7 @@ export const AddEvent = () => {
             slotProps={{
               textField: {
                 inputProps: {
-                  className: CustomTextField, // Apply the custom class here
+                  className: CustomTextField,
                 },
                 InputProps: {
                   endAdornment: (
