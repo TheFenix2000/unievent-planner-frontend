@@ -79,6 +79,7 @@ export const AddEvent = () => {
       <Box sx={styles.container}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MobileDatePicker
+            disablePast
             label="Data"
             format="DD MMM YYYY"
             slots={{ textField: CustomTextField }}
