@@ -2,6 +2,7 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
   colors: {
+    dark_red_50: '#D80000',
     black_100: '#000000',
     white_100: '#FFFFFF',
     red_100: '#F13D42',
