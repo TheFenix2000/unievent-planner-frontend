@@ -1,7 +1,8 @@
-import Login from './screens/loginView/login';
+// import Login from './screens/loginView/login';
+// import LoginViewDev from './screens/loginViewDev/loginViewDev';
 
 const App = () => {
-  return <Login />;
+  return 'App view';
 };
 
 export default App;
