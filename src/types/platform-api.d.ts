@@ -16,7 +16,7 @@ export enum AnnouncementTargetType {
 export enum EventTypeColor {
   CLASSES = '#BBE2FF',
   CLASS_CANCELLATION = '#FFF069',
-  TESTS = '#F1656A', // EXAM, RETAKES, QUIZ
+  TESTS = '#F1656A',
   MEETING = '#B8FFA8',
   OTHER = '#D9D9D9',
 }
@@ -67,6 +67,9 @@ export enum VerificationStatus {
   REJECTED = 'REJECTED',
   VERIFIED = 'VERIFIED',
 }
+
+// Types
+export type RequiredPermissions = { action: Action; subject: Subject };
 
 // Interfaces
 export interface BasicDto {
