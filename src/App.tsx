@@ -1,7 +1,9 @@
 import React from 'react';
 
+import WeekCalendar from './screens/weekCalendar/weekCalendar';
+
 const App = () => {
-  return <h1>Univent Planner</h1>;
+  return <WeekCalendar />;
 };
 
 export default App;
