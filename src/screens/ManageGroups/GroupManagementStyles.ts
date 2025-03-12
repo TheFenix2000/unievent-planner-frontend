@@ -5,26 +5,6 @@ export const styles = {
     textAlign: 'center',
     padding: '0 2rem',
   },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '1rem 2rem',
-    borderBottom: `2px solid ${theme.colors.black_100}`,
-    width: '100vw',
-    marginLeft: 'calc(-50vw + 50%)',
-    boxSizing: 'border-box',
-  },
-  icon: {
-    fontSize: '3rem',
-  },
-  univentLogo: {
-    width: '3rem',
-    height: '3rem',
-  },
-  headerIconsRight: {
-    display: 'flex',
-    gap: '1rem',
-  },
   manageGroups: {
     display: 'flex',
     alignItems: 'center',
@@ -72,9 +52,12 @@ export const styles = {
     padding: '1rem',
     borderRadius: '1rem',
     fontSize: '1.25rem',
-    backgroundColor: theme.colors.red_100,
+    backgroundColor: `${theme.colors.red_100} !important`,
     fontWeight: 'bold',
     textTransform: 'none',
+    '&:hover': {
+      backgroundColor: `${theme.colors.red_75} !important`,
+    },
   },
   buttonColor: {
     backgroundColor: theme.colors.red_100,

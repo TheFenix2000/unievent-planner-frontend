@@ -4,7 +4,7 @@ import { Edit } from '@mui/icons-material';
 import { IconButton, Button, Box, Typography, Avatar } from '@mui/material';
 
 import BackButtonComponent from '../../shared/backButton/backButton';
-import Header from '../../shared/header';
+import Header from '../../shared/header/header';
 import { styles } from '../ManageGroups/GroupManagementStyles';
 
 const GroupManagement = () => {

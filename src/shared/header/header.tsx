@@ -1,7 +1,7 @@
 import { Groups, Person } from '@mui/icons-material';
 import { IconButton, Box } from '@mui/material';
 
-import { styles } from '../screens/ManageGroups/GroupManagementStyles';
+import { styles } from './HeaderStyles';
 
 const Header = () => {
   return (
