@@ -32,6 +32,7 @@ export const SearchBar = styled(Input)`
 export const CodeContainers = styled(Container)`
   gap: 1rem;
   flex: 1 1 0%;
+  padding: 0rem;
 `;
 
 export const CodeContainer = styled(Box)`
@@ -42,12 +43,16 @@ export const CodeContainer = styled(Box)`
   background-color: ${theme.colors.red_25};
 `;
 
-export const LeftSideCodeContainer = styled(Container)``;
+export const LeftSideCodeContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-self: left;
+`;
 export const RightSideCodeContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-self: right;
-  overflow: hidden;
+  overflow: auto;
   padding: 1.75rem 0.5rem 0.5rem 0.1rem;
 `;
 

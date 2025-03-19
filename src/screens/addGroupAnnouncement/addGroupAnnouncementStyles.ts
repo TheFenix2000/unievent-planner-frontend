@@ -38,6 +38,11 @@ export const TopBar = styled(Box)`
 `;
 
 export const InputField = styled(TextField)`
+  .MuiInputLabel-root {
+    &.Mui-focused {
+      color: ${theme.colors.red_100};
+    }
+  }
   font-family: 'Inter', sans-serif;
   & .MuiOutlinedInput-root {
     color: ${theme.colors.black_100};
@@ -50,7 +55,7 @@ export const InputField = styled(TextField)`
       border-color: ${theme.colors.grey_50};
     }
     &.Mui-focused fieldset {
-      border-color: ${theme.colors.grey_50};
+      border-color: ${theme.colors.red_50};
     }
     & .MuiInputBase-input {
       font-family: 'Inter', sans-serif;
