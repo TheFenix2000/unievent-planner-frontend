@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Button, TextField, FormControl, MenuItem } from '@mui/material';
+import { Box, TextField, FormControl, MenuItem } from '@mui/material';
 import styled from 'styled-components';
 
 import { theme } from '../../assets/styles/theme';
@@ -10,21 +10,6 @@ export const Wrapper = styled(Box)`
   padding: 2rem;
   box-sizing: border-box;
 `;
-
-export const BootstrapButton = styled(Button)({
-  boxShadow: 'none',
-  textTransform: 'none',
-  fontSize: 16,
-  padding: '0.6rem 1.2rem',
-  border: '0.3rem solid',
-  lineHeight: 1.5,
-  backgroundColor: theme.colors.red_100,
-  borderColor: theme.colors.red_100,
-  borderRadius: 8,
-  color: theme.colors.white_100,
-  margin: 20,
-  fontFamily: ['Inter', 'sans-serif'].join(','),
-});
 
 export const CustomTextField = styled(TextField)({
   margin: '0rem',
@@ -40,7 +25,8 @@ export const CustomTextField = styled(TextField)({
       borderBottomLeftRadius: '0.4rem',
     },
     '&.Mui-focused fieldset': {
-      borderColor: theme.colors.grey_50,
+      color: theme.colors.red_50,
+      borderColor: theme.colors.red_50,
       boxShadow: 'none',
       borderWidth: '0.2rem',
       borderBottomLeftRadius: '0.4rem',
@@ -50,7 +36,7 @@ export const CustomTextField = styled(TextField)({
     color: theme.colors.grey_50,
   },
   '& .MuiInputLabel-root.Mui-focused': {
-    color: theme.colors.grey_50,
+    color: theme.colors.red_50,
   },
 });
 
@@ -59,7 +45,8 @@ export const CustomFormControl = styled(FormControl)({
     color: theme.colors.grey_50,
   },
   '& .MuiInputLabel-root.Mui-focused': {
-    color: theme.colors.grey_50,
+    color: theme.colors.red_50,
+    borderColor: theme.colors.red_50,
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
@@ -71,7 +58,7 @@ export const CustomFormControl = styled(FormControl)({
       borderWidth: '0.2rem',
     },
     '&.Mui-focused fieldset': {
-      borderColor: theme.colors.grey_50,
+      borderColor: theme.colors.red_50,
       boxShadow: 'none',
       borderWidth: '0.2rem',
     },
@@ -100,6 +87,12 @@ export const CustomMenuItemBottom = styled(MenuItem)({
 });
 
 export const styles = {
+  button: {
+    backgroundColor: theme.colors.red_100,
+    borderColor: theme.colors.red_100,
+    borderRadius: 8,
+    color: theme.colors.white_100,
+  },
   groupAvatar: {
     width: '1.5rem',
     height: '1.5rem',

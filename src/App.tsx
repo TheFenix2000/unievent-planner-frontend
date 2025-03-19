@@ -1,7 +1,13 @@
 import React from 'react';
 
+import { AddEvent } from './screens/addEvent/addEvent';
+
 const App = () => {
-  return <h1>Univent Planner</h1>;
+  return (
+    <>
+      <AddEvent />
+    </>
+  );
 };
 
 export default App;

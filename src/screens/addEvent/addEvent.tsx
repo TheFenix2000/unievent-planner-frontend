@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Avatar, InputAdornment } from '@mui/material';
+import { Avatar, Button, InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
@@ -15,7 +15,6 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 import {
   Wrapper,
-  BootstrapButton,
   CustomTextField,
   CustomFormControl,
   CustomMenuItem,
@@ -325,15 +324,9 @@ export const AddEvent = () => {
           {text.length}/200 znaków
         </Typography>
       </Box>
-      <BootstrapButton
-        style={{
-          backgroundColor: '#FF0000',
-          color: '#FFFFFF',
-          border: '0.3rem solid #FF0000',
-        }}
-      >
+      <Button variant="contained" style={styles.button}>
         Dodaj do kalendarza
-      </BootstrapButton>
+      </Button>
     </Wrapper>
   );
 };
